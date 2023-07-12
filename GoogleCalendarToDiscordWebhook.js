@@ -1,10 +1,10 @@
 // This Google Apps Script Will Send a POST to a Discord Webhook creating embed messages of any events starting within the next minute of execution.
 // Any events that have already started will not appear. 
 // This script should be triggered every minute using Google Triggers.
-const CHANNEL_POST_URL = "DISCORD_WEBHOOK_LINK_GOES_HERE"; 
-const CALENDAR_ID = "GOOGLE_CALENDAR_ID_GOES_HERE";
+const CHANNEL_POST_URL = "https://discord.com/api/webhooks/934237395770019890/N-gVhmBLJGBxvPj5JihVufORz-jXBKKw5VXESIuDSDubHpLUQTrnNSm39uOcyGg4T-na"; // webhook link here
+const CALENDAR_ID = "ov0dk4m6dedaob7oqse4nrda4s@group.calendar.google.com"; // change calendar id here 
 const NO_VALUE_FOUND = "N/A";
-const minsInAdvance = 1; // Set the number of minutes in advance you'd like events to be posted to discord. Must be 1 or greater
+const minsInAdvance = 1440; // Set the number of minutes in advance you'd like events to be posted to discord. Must be 1 or greater
 
 
 // Import Luxon
@@ -31,10 +31,10 @@ function postEventsToChannel() {
 
       // The Calendar API's .list function will continously return events whose endDate has not been reached yet (timeMin is based on the event's end time)
       // Since this script is meant to run every minute, we have to skip these events ourselves
-      if (DateTime.fromISO(ISOStartDate) < DTnow.plus({minutes: minsInAdvance - 1})) {
-        Logger.log(`Event ${event.summary} [${event.id}] has already started. Skipping`);
-        continue;
-      }
+      //if (DateTime.fromISO(ISOStartDate) < DTnow.plus({minutes: minsInAdvance - 1})) {
+      //  Logger.log(`Event ${event.summary} [${event.id}] has already started. Skipping`);
+      //  continue;
+      //}
 
       // Build the POST request
       let options = {
@@ -43,7 +43,7 @@ function postEventsToChannel() {
               "Content-Type": "application/json",
           },
           "payload": JSON.stringify({
-              "content": "‌",
+              "content": "<@&938657508870983683>",
               "embeds": [{
               "author": {
                   "name": `${event.summary}`,
