@@ -1,7 +1,7 @@
 // This Google Apps Script Will Send a POST to a Discord Webhook creating embed messages of any events starting within the next minute of execution.
 // Any events that have already started will not appear. 
 // This script should be triggered every minute using Google Triggers.
-const CHANNEL_POST_URL = "https://discord.com/api/webhooks/934237395770019890/N-gVhmBLJGBxvPj5JihVufORz-jXBKKw5VXESIuDSDubHpLUQTrnNSm39uOcyGg4T-na"; // webhook link here
+const CHANNEL_POST_URL = "ENTER WEBHOOK URL HERE"; // webhook link here
 const CALENDAR_ID = "ov0dk4m6dedaob7oqse4nrda4s@group.calendar.google.com"; // change calendar id here 
 const NO_VALUE_FOUND = "N/A";
 const minsInAdvance = 1440; // Set the number of minutes in advance you'd like events to be posted to discord. Must be 1 or greater
